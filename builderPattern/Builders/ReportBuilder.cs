@@ -3,30 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using builderPattern.Products;
 
 namespace builderPattern.Builders
 {
-    class ReportBuilder : ABuilder
+    public class ReportBuilder : ABuilder
     {
-        public override string BuildIntro()
+        public Report report;
+
+        public ReportBuilder(Report _report)
         {
-            return "";
+            report = _report;
         }
-        public override string BuildConclusion()
+
+        public override void BuildIntro()
         {
-            return "";
+            report.AddIntro("REPORT: CLASS PROGRESS");
         }
-        public override string BuildBasicReport()
+        public override void BuildConclusion()
         {
-            return "";
+            report.AddConclusion("END");
         }
-        public override string BuildFullReportWithAccess()
+        public void BuildPersonalInfo(bool hasAccess)
         {
-            return "";
+            report.AddPersonalInfo(hasAccess, "Personal Info: /n Beginning Class /n Number of Students: 4 /n Student Names: Bob, Sheila, Harry, Susan");
         }
-        public override string BuildFullReportWithoutAccess()
+        public void BuildCurrentProgress()
         {
-            return "";
+            report.AddCurrentProgress("Assignment 4 of 9 completed.");
+        }
+
+
+        public override void BuildBasicReport()
+        {
+            BuildIntro();
+            BuildConclusion();
+        }
+        public override void BuildFullReport(bool hasAccessToPersonalInfo)
+        {
+            BuildIntro();
+            BuildPersonalInfo(hasAccessToPersonalInfo);
+            BuildCurrentProgress();
+            BuildConclusion();
         }
     }
 }
