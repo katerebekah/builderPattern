@@ -26,7 +26,7 @@ namespace builderPattern.Builders
         }
         public void BuildPersonalInfo(bool hasAccess)
         {
-            report.AddPersonalInfo(hasAccess, "Personal Info: /n Beginning Class /n Number of Students: 4 /n Student Names: Bob, Sheila, Harry, Susan");
+            report.AddPersonalInfo(hasAccess, "Personal Info: \r\n Beginning Class \r\n Number of Students: 4 \r\n Student Names: Bob, Sheila, Harry, Susan");
         }
         public void BuildCurrentProgress()
         {

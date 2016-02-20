@@ -57,7 +57,7 @@ namespace builderPattern.Products
             {
                 FullReport.Add(Conclusion);
             }
-            return String.Join("/n", FullReport);  
+            return String.Join("\r\n", FullReport);  
         }
     }
 }
