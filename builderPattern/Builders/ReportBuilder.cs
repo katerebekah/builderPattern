@@ -9,13 +9,12 @@ namespace builderPattern.Builders
 {
     public class ReportBuilder : ABuilder
     {
-        public Report report;
+        public IReport report;
 
-        public ReportBuilder(Report _report)
+        public ReportBuilder(IReport _report)
         {
             report = _report;
         }
-
         public override void BuildIntro()
         {
             report.AddIntro("REPORT: CLASS PROGRESS");

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Builders\ABuilder.cs" />
     <Compile Include="Builders\ReportBuilder.cs" />
+    <Compile Include="Products\IReport.cs" />
     <Compile Include="Products\Report.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
