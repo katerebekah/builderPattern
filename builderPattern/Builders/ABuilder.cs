@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace builderPattern.Builders
 {
-    abstract class ABuilder
+    public abstract class ABuilder
     {
-        public abstract string BuildIntro();
-        public abstract string BuildConclusion();
-        public abstract string BuildBasicReport();
-        public abstract string BuildFullReportWithAccess();
-        public abstract string BuildFullReportWithoutAccess();
+        public abstract void BuildIntro();
+        public abstract void BuildConclusion();
+        public abstract void BuildBasicReport();
+        public abstract void BuildFullReport(bool hasAccessToPersonalInfo);
     }
 }
