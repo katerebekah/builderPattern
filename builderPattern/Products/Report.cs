@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace builderPattern.Products
 {
-    class Report
+    public class Report
     {
         private string Intro { get; set; }
         private string PersonalInfo { get; set; }
