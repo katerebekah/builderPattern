@@ -16,27 +16,26 @@ namespace builderPattern
             Console.WriteLine("What kind of report do you want? \r\n [1] - Basic Report \r\n [2] - Full Report Without Access To Personal Info \r\n [3] - Full Report With Access To Personal Info");
             var input = Console.ReadLine();
             int userChoice;
-            var canParseToInt = int.TryParse(input, out userChoice);
-            if (userChoice > 0 && userChoice < 4)
+            int.TryParse(input, out userChoice);
+            var report = new Report();
+            var reportBuilder = new ReportBuilder(report);
+            switch (userChoice)
             {
-                var report = new Report();
-                var reportBuilder = new ReportBuilder(report);
-                if (userChoice == 1)
-                {
+                case 1:
                     reportBuilder.BuildBasicReport();
-                }
-                else if (userChoice == 2)
-                {
+                    break;
+                case 2:
                     reportBuilder.BuildFullReport(false);
-                }
-                else if (userChoice == 3)
-                {
+                    break;
+                case 3:
                     reportBuilder.BuildFullReport(true);
-                }
-                Console.WriteLine(report.BuildReport());
+                    break;
+                default:
+                    Console.WriteLine("This is not an accepted input. Goodbye.");
+                    break;
             }
-            else
-                Console.WriteLine("This is not an accepted input. Goodbye.");
+            Console.WriteLine(report.BuildReport());
+            
             Console.ReadKey();
         }
     }
