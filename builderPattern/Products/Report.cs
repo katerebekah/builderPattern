@@ -8,53 +8,56 @@ namespace builderPattern.Products
 {
     class Report
     {
-        private string Intro
+        private string Intro { get; set; }
+        private string PersonalInfo { get; set; }
+        private string CurrentProgress { get; set;}
+        private string Conclusion { get; set; }
+
+        private List<string> FullReport { get; set; }
+
+        public void AddIntro(string intro)
         {
-            get { return "Welcome to the report."; }
-        }
-        private string PersonalInfo
-        {
-            get { return "Personal Info: /n Beginning Class /n Number of Students: 4 /n Student Names: Bob, Sheila, Harry, Susan"}
-        }
-        private string CurrentProgress
-        {
-            get { return "Assignment 4 of 9 completed."; }
-        }
-        private string FuturePlans
-        {
-            get { return "This class plans to finish assignments and build a rocket ship."; }
-        }
-        private string Conclusion {
-            get { return "This is the end of the report. Goodbye."; }
+            Intro = intro;
         }
 
-        public string GetIntro()
-        {
-            return Intro;
-        }
-
-        public string GetPersonalInfo (bool hasAccess)
+        public void AddPersonalInfo (bool hasAccess, string personalInfo)
         {
             if (hasAccess)
             {
-                return PersonalInfo; 
+                PersonalInfo = personalInfo; 
             }
-            return "";
         }
 
-        public string GetCurrentProgress ()
+        public void AddCurrentProgress (string currentProgress)
         {
-            return CurrentProgress;
+            CurrentProgress = currentProgress;
+        }
+        
+        public void AddConclusion(string conclusion)
+        {
+            Conclusion = conclusion;
         }
 
-        public string GetFuturePlans()
+        public string BuildReport()
         {
-            return FuturePlans;
-        }
-
-        public string GetConclusion()
-        {
-            return Conclusion;
+            FullReport = new List<string>();
+            if (Intro != null)
+            {
+                FullReport.Add(Intro);
+            }
+            if (PersonalInfo != null)
+            {
+                FullReport.Add(PersonalInfo);
+            }
+            if (CurrentProgress != null)
+            {
+                FullReport.Add(CurrentProgress);
+            }
+            if (Conclusion != null)
+            {
+                FullReport.Add(Conclusion);
+            }
+            return String.Join("/n", FullReport);  
         }
     }
 }
